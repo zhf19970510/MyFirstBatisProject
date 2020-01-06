@@ -1,0 +1,2 @@
+# MyFirstBatisProject
+这是使用mybatis，没有使用spring构建的对mybatis+maven的项目
