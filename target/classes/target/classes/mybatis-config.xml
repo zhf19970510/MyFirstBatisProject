@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="jdbc.properties"></properties>
+    
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false" />
+    </settings>
+    
+    <typeAliases>
+        <!--<typeAlias type="com.zhf.pojo.User" alias="user"></typeAlias>-->
+        <package name="com.zhf.pojo" />
+    </typeAliases>
+    <environments default="mysql">
+        <environment id="mysql">
+            <!-- 事务管理 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <!--target/classes/src/main/java/com/zhf/dao/UserMapper.xml-->
+        <mapper resource="mapper/UserMapper.xml"/>
+        <!--<mapper class="com.zhf.dao.UserMapper"></mapper>-->
+    </mappers>
+</configuration>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace命名空间，为了对SQL语句进行隔离，方便管理
+    mapper开发dao方式，特殊的作用
+ -->
+<mapper namespace="com.zhf.dao.UserMapper">
+    <cache/>
+    <select id="findUserById" parameterType="int" resultType="com.zhf.pojo.User">
+        select id,username,age from users where id=#{id}
+    </select>
+
+    <select id="findUserByName" parameterType="string" resultType="com.zhf.pojo.User">
+        select * from users where username=#{name}
+    </select>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="int">
+        delete from users where id=#{id}
+    </delete>
+
+    <!-- 修改用户 -->
+    <update id="updateUser" parameterType="com.zhf.pojo.User">
+        update users set username=#{username},age=#{age} where id=#{id}
+    </update>
+    <insert id="addUser" parameterType="com.zhf.pojo.User" useGeneratedKeys="true" keyProperty="id">
+        insert into users(username,age) values(#{username},#{age});
+    </insert>
+
+</mapper>
