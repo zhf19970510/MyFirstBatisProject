@@ -149,7 +149,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.31</version><!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
+            <version>1.2.83</version><!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
         </dependency>
         <dependency>
             <groupId>tk.mybatis</groupId>
